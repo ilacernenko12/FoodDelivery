@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fooddelivery.data.model.ProductResponse
 import com.example.fooddelivery.R
+import com.example.fooddelivery.domain.model.Product
 
-class ProductAdapter(var products: List<ProductResponse>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(var products: List<Product>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
         return ViewHolder(view)
@@ -32,7 +33,7 @@ class ProductAdapter(var products: List<ProductResponse>) : RecyclerView.Adapter
         private val vTvDescription: TextView = itemView.findViewById(R.id.vTvDescription)
         private val vTvWeight: TextView = itemView.findViewById(R.id.vTvWeight)
 
-        fun bind(product: ProductResponse) {
+        fun bind(product: Product) {
             vTvCoast.text = product.coast.toString()
             vTvProductName.text = product.productName
             vTvDescription.text = product.description
