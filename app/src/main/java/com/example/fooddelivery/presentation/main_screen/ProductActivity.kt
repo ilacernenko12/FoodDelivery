@@ -23,15 +23,19 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
 
+        initActivity()
+    }
+
+    private fun initActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = productAdapter
-
 
         productViewModel.products.onEach {
             productAdapter.products = it
             productAdapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
+
 
     }
 }
