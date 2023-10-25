@@ -1,4 +1,4 @@
-package com.example.fooddelivery.domain.mapper
+package com.example.fooddelivery.data.mapper
 
 import com.example.fooddelivery.data.model.ProductResponse
 import com.example.fooddelivery.domain.model.Product

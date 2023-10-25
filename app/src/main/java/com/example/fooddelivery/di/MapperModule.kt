@@ -1,6 +1,6 @@
 package com.example.fooddelivery.di
 
-import com.example.fooddelivery.domain.mapper.ProductMapper
+import com.example.fooddelivery.data.mapper.ProductMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

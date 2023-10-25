@@ -1,5 +1,6 @@
 package com.example.fooddelivery.di
 
+import com.example.fooddelivery.data.mapper.ProductMapper
 import com.example.fooddelivery.domain.repository.ProductRepository
 import com.example.fooddelivery.data.repository.ProductRepositoryImpl
 import com.example.fooddelivery.data.network.ProductService
@@ -31,6 +32,6 @@ object NetworkModule {
 
     @Provides
     fun provideProductRepository(): ProductRepository {
-        return ProductRepositoryImpl(provideProductService(provideRetrofit()))
+        return ProductRepositoryImpl(provideProductService(provideRetrofit()), ProductMapper())
     }
 }

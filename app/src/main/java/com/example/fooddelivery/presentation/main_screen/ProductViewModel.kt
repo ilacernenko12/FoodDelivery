@@ -1,5 +1,6 @@
 package com.example.fooddelivery.presentation.main_screen
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.fooddelivery.data.model.ProductResponse
 import com.example.fooddelivery.data.repository.ProductRepositoryImpl
@@ -11,9 +12,14 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductViewModel @Inject constructor(private val getAllProductsUseCase: GetAllProductsUseCase) : ViewModel() {
+class ProductViewModel @Inject constructor(private val getAllProductsUseCase: GetAllProductsUseCase) :
+    ViewModel() {
     val products: Flow<List<Product>> = flow {
         val data = getAllProductsUseCase.execute().toList()
         emit(data)
     }.flowOn(Dispatchers.IO)
+
+    fun onCountChanged(count: Int) {
+        Log.d("DEBUGSOSI: ",count.toString())
+    }
 }

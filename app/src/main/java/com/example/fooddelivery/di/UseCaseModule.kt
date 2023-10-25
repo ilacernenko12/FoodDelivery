@@ -1,6 +1,6 @@
 package com.example.fooddelivery.di
 
-import com.example.fooddelivery.domain.mapper.ProductMapper
+import com.example.fooddelivery.data.mapper.ProductMapper
 import com.example.fooddelivery.domain.repository.ProductRepository
 import com.example.fooddelivery.domain.usecase.GetAllProductsUseCase
 import dagger.Module
@@ -18,6 +18,6 @@ object UseCaseModule {
         productRepository: ProductRepository,
         productMapper: ProductMapper
     ): GetAllProductsUseCase {
-        return GetAllProductsUseCase(productRepository, productMapper)
+        return GetAllProductsUseCase(productRepository)
     }
 }

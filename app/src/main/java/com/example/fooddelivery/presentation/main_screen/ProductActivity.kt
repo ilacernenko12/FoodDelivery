@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddelivery.R
+import com.example.fooddelivery.databinding.ActivityProductBinding
 import com.example.fooddelivery.presentation.adapter.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -16,12 +17,16 @@ import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class ProductActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityProductBinding
     private val productViewModel: ProductViewModel by viewModels()
-    private val productAdapter = ProductAdapter(emptyList())
+    private val productAdapter = ProductAdapter(emptyList()) { newCount ->
+        productViewModel.onCountChanged(newCount)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product)
+        binding = ActivityProductBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initActivity()
     }
