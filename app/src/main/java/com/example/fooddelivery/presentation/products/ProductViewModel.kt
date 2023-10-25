@@ -1,9 +1,7 @@
-package com.example.fooddelivery.presentation.main_screen
+package com.example.fooddelivery.presentation.products
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.fooddelivery.data.model.ProductResponse
-import com.example.fooddelivery.data.repository.ProductRepositoryImpl
 import com.example.fooddelivery.domain.model.Product
 import com.example.fooddelivery.domain.usecase.GetAllProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
