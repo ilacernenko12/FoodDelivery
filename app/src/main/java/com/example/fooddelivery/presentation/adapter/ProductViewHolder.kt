@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fooddelivery.R
 import com.example.fooddelivery.domain.model.Product
-import com.example.fooddelivery.presentation.utils.views.CountButton
+import com.example.fooddelivery.presentation.utils.view.CountButton
 
 class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val vTvCoast: TextView = itemView.findViewById(R.id.vTvCoast)
@@ -16,9 +16,9 @@ class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val vTvWeight: TextView = itemView.findViewById(R.id.vTvWeight)
     private val vBtnCountButton = itemView.findViewById<CountButton>(R.id.vBtnCountButton)
 
-    fun bind(product: Product, onCountChanged: (Int)->Unit) {
+    fun bind(product: Product, onCountChanged: (Product, Int)->Unit) {
         vBtnCountButton.onCountChanged = { newCount->
-            onCountChanged.invoke(newCount)
+            onCountChanged.invoke(product, newCount)
         }
 
 

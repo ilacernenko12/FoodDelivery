@@ -1,9 +1,13 @@
 package com.example.fooddelivery.di
 
-import com.example.fooddelivery.data.mapper.ProductMapper
+import com.example.fooddelivery.data.local.dao.CartDao
+import com.example.fooddelivery.data.mapper.ProductResponseMapper
+import com.example.fooddelivery.domain.mapper.ProductToCartItemMapper
 import com.example.fooddelivery.domain.repository.ProductRepository
 import com.example.fooddelivery.data.repository.ProductRepositoryImpl
 import com.example.fooddelivery.data.network.ProductService
+import com.example.fooddelivery.data.repository.CartRepositoryImpl
+import com.example.fooddelivery.domain.repository.CartRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,8 +34,15 @@ object NetworkModule {
         return retrofit.create(ProductService::class.java)
     }
 
+    @Singleton
     @Provides
     fun provideProductRepository(): ProductRepository {
-        return ProductRepositoryImpl(provideProductService(provideRetrofit()), ProductMapper())
+        return ProductRepositoryImpl(provideProductService(provideRetrofit()), ProductResponseMapper())
+    }
+
+    @Provides
+    @Singleton
+    fun provideCartRepository(cartDao: CartDao): CartRepository {
+        return CartRepositoryImpl(cartDao, ProductToCartItemMapper())
     }
 }

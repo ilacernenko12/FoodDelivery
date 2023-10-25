@@ -19,8 +19,8 @@ class ProductFragment : Fragment() {
 
     private lateinit var binding: FragmentProductBinding
     private val productViewModel: ProductViewModel by viewModels()
-    private val productAdapter = ProductAdapter(emptyList()) { newCount ->
-        productViewModel.onCountChanged(newCount)
+    private val productAdapter = ProductAdapter(emptyList()) { product, newCount ->
+        productViewModel.onCountChanged(product, newCount)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.example.fooddelivery.presentation.utils.views
+package com.example.fooddelivery.presentation.utils.view
 
 import android.content.Context
 import android.util.AttributeSet

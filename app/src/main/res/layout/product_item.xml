@@ -55,7 +55,7 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <com.example.fooddelivery.presentation.utils.views.CountButton
+    <com.example.fooddelivery.presentation.utils.view.CountButton
         android:id="@+id/vBtnCountButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

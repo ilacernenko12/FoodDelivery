@@ -4,7 +4,7 @@ import com.example.fooddelivery.data.model.ProductResponse
 import com.example.fooddelivery.domain.model.Product
 import javax.inject.Inject
 
-class ProductMapper @Inject constructor()  {
+class ProductResponseMapper @Inject constructor()  {
     fun mapResponseToDomain(from: ProductResponse) = from.run {
         Product(
             coast = coast,

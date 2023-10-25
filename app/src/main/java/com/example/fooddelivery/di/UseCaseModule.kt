@@ -1,8 +1,10 @@
 package com.example.fooddelivery.di
 
-import com.example.fooddelivery.data.mapper.ProductMapper
+import com.example.fooddelivery.data.mapper.ProductResponseMapper
+import com.example.fooddelivery.domain.repository.CartRepository
 import com.example.fooddelivery.domain.repository.ProductRepository
 import com.example.fooddelivery.domain.usecase.GetAllProductsUseCase
+import com.example.fooddelivery.domain.usecase.ManageCartUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +18,14 @@ object UseCaseModule {
     @Singleton
     fun provideGetProductsUseCase(
         productRepository: ProductRepository,
-        productMapper: ProductMapper
+        productMapper: ProductResponseMapper
     ): GetAllProductsUseCase {
         return GetAllProductsUseCase(productRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideManageCartUseCase(cartRepository: CartRepository): ManageCartUseCase {
+        return ManageCartUseCase(cartRepository)
     }
 }
