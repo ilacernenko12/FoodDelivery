@@ -16,8 +16,8 @@ import javax.inject.Inject
 class ProductViewModel @Inject constructor(
     private val getAllProductsUseCase: GetAllProductsUseCase,
     private val manageCartUseCase: ManageCartUseCase
-) :
-    ViewModel() {
+) : ViewModel() {
+
     val products: Flow<List<Product>> = flow {
         val data = getAllProductsUseCase.execute().toList()
         emit(data)

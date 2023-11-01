@@ -2,7 +2,7 @@ package com.example.fooddelivery.di
 
 import com.example.fooddelivery.data.local.dao.CartDao
 import com.example.fooddelivery.data.mapper.ProductResponseMapper
-import com.example.fooddelivery.domain.mapper.ProductToCartItemMapper
+import com.example.fooddelivery.domain.mapper.CartItemMapper
 import com.example.fooddelivery.domain.repository.ProductRepository
 import com.example.fooddelivery.data.repository.ProductRepositoryImpl
 import com.example.fooddelivery.data.network.ProductService
@@ -43,6 +43,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideCartRepository(cartDao: CartDao): CartRepository {
-        return CartRepositoryImpl(cartDao, ProductToCartItemMapper())
+        return CartRepositoryImpl(cartDao, CartItemMapper())
     }
 }

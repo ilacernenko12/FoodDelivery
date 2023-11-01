@@ -1,7 +1,7 @@
 package com.example.fooddelivery.di
 
 import com.example.fooddelivery.data.mapper.ProductResponseMapper
-import com.example.fooddelivery.domain.mapper.ProductToCartItemMapper
+import com.example.fooddelivery.domain.mapper.CartItemMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ object MapperModule {
 
     @Provides
     @Singleton
-    fun provideProductToCartItemMapper(): ProductToCartItemMapper {
-        return ProductToCartItemMapper()
+    fun provideProductToCartItemMapper(): CartItemMapper {
+        return CartItemMapper()
     }
 }

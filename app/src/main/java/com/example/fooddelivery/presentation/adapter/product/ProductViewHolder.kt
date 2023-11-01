@@ -1,4 +1,4 @@
-package com.example.fooddelivery.presentation.adapter
+package com.example.fooddelivery.presentation.adapter.product
 
 import android.view.View
 import android.widget.ImageView

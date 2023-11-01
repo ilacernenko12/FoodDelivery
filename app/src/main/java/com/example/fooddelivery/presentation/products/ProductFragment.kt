@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fooddelivery.databinding.FragmentProductBinding
-import com.example.fooddelivery.presentation.adapter.ProductAdapter
+import com.example.fooddelivery.presentation.adapter.product.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
